@@ -1,9 +1,14 @@
-## Rust Intro
+# Rust Intro
 
 Playground, study notes for Rust
 
 _Programmers who need to “dip down” into lower-level control can do so with Rust, without taking on the customary risk of crashes or security holes, and without having to learn the fine points of a fickle toolchain._
 
+## Notes
+
+* use `cargo check` to check for safe compiles, does not produce executable. 
+* `cargo build --release` -> `target/release`: optimized binary.
+ 
 
 ## References
 
