@@ -9,3 +9,4 @@ _Programmers who need to “dip down” into lower-level control can do so with 
 
 * https://doc.rust-lang.org/book/title-page.html
 * https://github.com/rust-lang/rustlings/tree/rustlings-1
+* https://doc.rust-lang.org/cargo/guide
