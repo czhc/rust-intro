@@ -1,3 +1,3 @@
 ## Hello world on Cargo
 
-Run with `cargo build` and `cargo run`
+Rebuild binary with `cargo build` and execute with `cargo run`
