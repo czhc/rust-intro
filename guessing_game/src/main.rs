@@ -19,8 +19,7 @@ fn main() {
         println!("Input your guess: ");
 
         /**
-         * `let` declares a variable. all variables are immutable
-         * unless declared with `mut`
+         * `let` declares a variable. all variables are immutable unless declared with `mut`
          * `::` indicates function `new` from type `String`
          * `String::new` produces empty string
          * */
@@ -38,8 +37,11 @@ fn main() {
         /**
          * read_line returns an `io::Result`. Rust has a general `Result` type, or submodules e.g. `io::Result`
          * `Result types are enums: either `Ok` or `Err` to encode error-handling
+         *
          * `io::Result` has an `expect()` method.
-         * if `io::Result` is an `Err`, `expect` throws and display given arg
+         * if `io::Result` is an `Err`, `expect` throws exception with given arg
+         * `=> thread 'main' panicked at 'Please type a number!: ParseIntError { kind: InvalidDigit }',`
+         *
          * if `io::Result` is an `Ok`, `expect` takes the return value of `Ok` and returns only the value.
          * Rust will raise a warning if `Result` values are not handled.
          * */
@@ -47,11 +49,20 @@ fn main() {
         /**
          * Rust allows us to shadow the previous value of `guess` with a new one.
          * Use this for value conversions - reuse variable name instead of creating two unique variables
+         *
          * `u32` - unsigned 32-bit int, `i32` - 32bit number. number types from 1-100.
          * default number type is `i32`
          * */
 
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        let guess: u32 = match guess.trim().parse(){
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
+        /**
+         * passing a block to gracefully handle `Ok` and `Err` types of `io::Result`
+         * Err(_): `_` is a catchall value
+         * */
 
         println!("You guessed: {}", guess);
         //print values are ordered and interpolated with {}
