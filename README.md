@@ -8,7 +8,7 @@ _Programmers who need to “dip down” into lower-level control can do so with 
 
 * use `cargo check` to check for safe compiles, does not produce executable. 
 * `cargo build --release` -> `target/release`: optimized binary.
- 
+* adding dependencies/crates: edit `Cargo.toml` manually. crates are fetched from crates.io
 
 ## References
 
