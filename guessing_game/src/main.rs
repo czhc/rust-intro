@@ -7,9 +7,13 @@
  * */
 
 use std::io;
+use rand::Rng;
+use std::cmp::Ordering;
 
 fn main() {
-    println!("Guess the number!");
+    println!("Guess a number (between 1-10)!");
+    let secret = rand::thread_rng().gen_range(1..10);
+
     println!("Input your guess: ");
 
     /**
@@ -38,7 +42,23 @@ fn main() {
      * Rust will raise a warning if `Result` values are not handled.
      * */
 
-    println!("You guessed: {}", guess);
+    /**
+     * Rust allows us to shadow the previous value of `guess` with a new one.
+     * Use this for value conversions - reuse variable name instead of creating two unique variables
+     * `u32` - unsigned 32-bit int, `i32` - 32bit number. number types from 1-100.
+     * default number type is `i32`
+     * */
 
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+
+    println!("You guessed: {}", guess);
     //print values are ordered and interpolated with {}
+
+    match guess.cmp(&secret) {
+        Ordering::Less => println!("Too small"),
+        Ordering::Greater => println!("Too big"),
+        Ordering::Equal => println!("Bingo!"),
+    }
+
+    println!("The secret is: {}", &secret);
 }
